@@ -19,12 +19,13 @@ public class ArrayBoundedStack <T> implements StackInterface<T>{
 
 
     @Override
-    public void push(T element) throws StackOverflowException {
-
-        if(!isFull()){
-
+    public void push(T element) {
+        if(isFull()){
+            throw new StackOverflowException("Push attempted on a full stack");
+        }else{
+            topIndex++;
+            elements[topIndex] = element;
         }
-
     }
 
     @Override
