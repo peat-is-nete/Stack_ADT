@@ -1,4 +1,10 @@
-public class ArrayBoundedStack <T> implements StackInterface<T>{
+package ArrayStack;
+
+import Exceptions.StackOverflowException;
+import Exceptions.StackUnderflowException;
+import Interface.StackInterface;
+
+public class ArrayBoundedStack <T> implements StackInterface<T> {
 
     protected final int DEFCAP = 100; // default capacity
     protected T[] elements; // holds stack elements
@@ -39,8 +45,13 @@ public class ArrayBoundedStack <T> implements StackInterface<T>{
     }
 
     @Override
-    public T top() throws StackUnderflowException {
-        return null;
+    public T top() {
+        T topOfStack = null;
+        if (isEmpty())
+            throw new StackUnderflowException("Top attempted on empty stack.");
+        else
+            topOfStack = elements[topIndex];
+        return topOfStack;
     }
 
     @Override

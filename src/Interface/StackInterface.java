@@ -1,17 +1,22 @@
+package Interface;
+
+import Exceptions.StackOverflowException;
+import Exceptions.StackUnderflowException;
+
 public interface StackInterface<T> {
 
     void push( T element) throws StackOverflowException;
-    // Throws StackOverflowException if this stack is full,
+    // Throws stacks.StackOverflowException if this stack is full,
     // otherwise places element at the top of this stack.
 
 
     void pop() throws StackUnderflowException;
-    // Throws StackUnderflowException if this stack is empty,
+    // Throws stacks.StackUnderflowException if this stack is empty,
     // otherwise removes top element from this stack.
 
 
     T top() throws StackUnderflowException;
-    // Throws StackUnderflowException if this stack is empty,
+    // Throws stacks.StackUnderflowException if this stack is empty,
     // Otherwise returns top element of this stack.
 
     boolean isFull();
