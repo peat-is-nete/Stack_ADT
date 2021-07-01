@@ -21,7 +21,7 @@ public class ArrayBoundedStack <T> implements StackInterface<T>{
     @Override
     public void push(T element) {
         if(isFull()){
-            throw new StackOverflowException("Push attempted on a full stack");
+            throw new StackOverflowException("Push attempted on a full stack.");
         }else{
             topIndex++;
             elements[topIndex] = element;
@@ -29,8 +29,13 @@ public class ArrayBoundedStack <T> implements StackInterface<T>{
     }
 
     @Override
-    public void pop() throws StackUnderflowException {
-
+    public void pop() {
+        if (isEmpty()){
+            throw new StackUnderflowException("Pop attempted on empty stack.");
+        }else {
+            elements[topIndex] = null;
+            topIndex--;
+        }
     }
 
     @Override
